@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducers from './reducers';
 import Routes from './routes';
-// import '../assets/style/style.css';
+import './stylesheets/main.scss';
 
 const createStoreWithMiddleware = composeWithDevTools(applyMiddleware(ReduxThunk))(createStore);
 const store = createStoreWithMiddleware(reducers);

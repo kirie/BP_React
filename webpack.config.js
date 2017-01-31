@@ -26,11 +26,17 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
-          loader: 'css-loader'
-        }),
-        test: /\.css$/
+          loader: ['css-loader', 'sass-loader']
+        })
       },
+      // {
+      //   loader: ExtractTextPlugin.extract({
+      //     loader: 'css-loader'
+      //   }),
+      //   test: /\.css$/
+      // },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
         use: [

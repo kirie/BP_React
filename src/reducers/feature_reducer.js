@@ -1,7 +1,7 @@
 import { ACTION1 } from '../actions/types';
 
 const INITIAL_STATE = {
-  greeting: ['Hello']
+  greeting: ['This msg from state']
 };
 
 export default function (state = INITIAL_STATE, action) {
