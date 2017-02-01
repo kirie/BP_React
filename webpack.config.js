@@ -31,12 +31,6 @@ module.exports = {
           loader: ['css-loader', 'sass-loader']
         })
       },
-      // {
-      //   loader: ExtractTextPlugin.extract({
-      //     loader: 'css-loader'
-      //   }),
-      //   test: /\.css$/
-      // },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
         use: [
