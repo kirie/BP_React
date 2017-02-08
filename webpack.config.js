@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 //const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const VENDOR_LIBS = ['react', 'redux', 'react-dom', 'react-redux', 'redux-thunk', 'react-router'];
@@ -55,9 +56,16 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html'
     }),
+    new CompressionPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    }),
+    })
     // new CopyWebpackPlugin([
     //   { from: 'src/components/assets/', to: 'assets/' }
     // ])
