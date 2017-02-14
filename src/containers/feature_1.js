@@ -17,16 +17,18 @@ class Feat1 extends Component {
 
   render() {
     return (
-      <div className="feature1">
-        <div className="statemsg">
-          {this.props.msg}
+      <div>
+        <div className="feature1">
+          <div className="statemsg">
+            {this.props.msg}
+          </div>
+          <div>
+            <form onSubmit={event => event.preventDefault()}>
+              <input value={this.state.term} onChange={this.onInputChange} />
+            </form>
+          </div>
         </div>
-        <div>
-          <form onSubmit={event => event.preventDefault()}>
-            <input value={this.state.term} onChange={this.onInputChange} />
-          </form>
-          {this.state.term}
-        </div>
+        {this.state.term}      
       </div>
     );
   }
