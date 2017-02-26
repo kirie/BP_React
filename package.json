@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "webpack-dev-server",
-    "updatedep": "ncu",
+    "update": "ncu",
     "build": "NODE_ENV=production npm run clean && webpack",
     "deploygh-pages": "npm run build && git subtree push --prefix dist origin gh-pages",
     "test": "jest"
