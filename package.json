@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
+    "concurrent": "concurrently --kill-others \"node server/server.js\" \"npm run dev\"",
+    "deploygh-pages": "npm run build && git subtree push --prefix dist origin gh-pages",
     "dev": "webpack-dev-server",
     "update": "ncu",
     "build": "NODE_ENV=production npm run clean && webpack",
-    "deploygh-pages": "npm run build && git subtree push --prefix dist origin gh-pages",
     "test": "jest"
   },
   "repository": {
@@ -34,11 +35,13 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "autoprefixer": "^6.7.7",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-preset-env": "^1.1.8",
     "babel-preset-react": "^6.22.0",
     "compression-webpack-plugin": "^0.3.2",
+    "concurrently": "^3.4.0",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
     "enzyme": "^2.7.1",
@@ -53,6 +56,9 @@
     "image-webpack-loader": "^3.2.0",
     "jest": "^18.1.0",
     "node-sass": "^4.4.0",
+    "postcss-loader": "^1.3.3",
+    "postcss-smart-import": "^0.6.10",
+    "precss": "^1.4.0",
     "react-test-renderer": "^15.4.2",
     "rimraf": "^2.5.4",
     "sass-loader": "^4.1.1",
